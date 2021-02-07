@@ -1,6 +1,9 @@
 package com.example.userinfo.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -10,14 +13,17 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column
+    @Column(nullable = false)
     private String name;
-    @Column
+    @Column(nullable = false)
     private String surname;
-    @Column
+    @Column(nullable = false)
     private String gender;
-    @Column
-    private Date birthDate;
+    @Column(nullable = false)
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate birthDate;
+
+
 
     public Integer getId() {
         return id;
@@ -51,11 +57,4 @@ public class User {
         this.gender = gender;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
 }
