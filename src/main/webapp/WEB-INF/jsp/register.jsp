@@ -73,7 +73,7 @@
                 <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Work Address</label>
                     <div class="col-sm-7">
-                        <input  type="text" class="form-control" name="contact"
+                        <input  type="text" class="form-control" name="workAddress"
                                placeholder="Enter Work Address"/>
                     </div>
                 </div>

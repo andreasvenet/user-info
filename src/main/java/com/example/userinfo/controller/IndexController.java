@@ -23,6 +23,7 @@ public class IndexController {
 
     @Autowired
     UserRepository repository;
+
     @RequestMapping(value = "index", method = RequestMethod.GET)
     public String home(ModelMap model) {
         return "index";
@@ -40,19 +41,19 @@ public class IndexController {
     public String register(ModelMap model) {
         User user = new User();
         Address address = new Address();
-        model.addAttribute("user",user);
+        model.addAttribute("user", user);
         model.addAttribute("address", address);
         return "register";
     }
 
     @PostMapping("/register")
-    public void submitForm(@ModelAttribute("user") User user, @ModelAttribute("address") Address address) throws ResourceAlreadyExistsException {
+    public String submitForm(@ModelAttribute("user") User user, @RequestParam(value = "homeAddress", required = false, defaultValue = "") String homeAddress, @RequestParam(value = "workAddress", required = false, defaultValue = "") String workAddress) throws ResourceAlreadyExistsException {
         userService.createUser(user);
-        if (address.getHomeAddress()!="" || address.getWorkAddress()!=""){
-            addressService.createAddress(address);
+        if (!homeAddress.equals("") || !workAddress.equals("")) {
+            addressService.createAddress(new Address(homeAddress, workAddress, user));
         }
 
-
+        return "index";
 
     }
 
