@@ -17,6 +17,17 @@ public class Address {
     @JoinColumn(name="user_id")
     private User user;
 
+    public Address() {
+
+    }
+
+    public Address(Integer id, String homeAddress, String workAddress, User user) {
+        this.id = id;
+        this.homeAddress = homeAddress;
+        this.workAddress = workAddress;
+        this.user = user;
+    }
+
     public Integer getId() {
         return id;
     }

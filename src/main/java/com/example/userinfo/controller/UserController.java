@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @GetMapping(path = "/users", produces = "application/json")
-    public List<User> getUser() throws ResourceNotFoundException {
+    public List<User> getUsers() throws ResourceNotFoundException {
         return service.getAll();
     }
 

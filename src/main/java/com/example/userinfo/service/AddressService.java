@@ -19,13 +19,14 @@ public class AddressService {
     }
 
     public Address createAddress(Address address) {
-        Optional<Address> aAddress = addressRepository.findById(address.getId());
-        if(aAddress.isEmpty()){
-            return addressRepository.save(address);
-        }
-        else {
-            throw new ResponseStatusException(HttpStatus.FOUND, "Address Already Exists");
-        }
+//        Optional<Address> aAddress = addressRepository.findById(address.getId());
+//        if(aAddress.isEmpty()){
+//            return addressRepository.save(address);
+//        }
+//        else {
+//            throw new ResponseStatusException(HttpStatus.FOUND, "Address Already Exists");
+//        }
+        return addressRepository.save(address);
     }
 
     public Address getAddressById(Integer id) throws ResourceNotFoundException {

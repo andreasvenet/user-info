@@ -11,25 +11,28 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UserService {
     private final UserRepository userRepository;
+
     @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     public User createUser(User user) throws ResourceAlreadyExistsException {
-       Optional<User> aUser = userRepository.findById(user.getId());
-       if (aUser.isEmpty()){
-           return userRepository.save(user);
-       }
-       else {
-           throw new ResponseStatusException(HttpStatus.FOUND, "User Already Exists");
-       }
+//       Optional<User> aUser = userRepository.findById(user.getId());
+//       if (aUser.isEmpty()){
+//           return userRepository.save(user);
+//       }
+//       else {
+//           throw new ResponseStatusException(HttpStatus.FOUND, "User Already Exists");
+//       }
+       return userRepository.save(user);
     }
 
 
@@ -45,7 +48,8 @@ public class UserService {
     }
 
     public List<User> getAll(){
-        return userRepository.findAll();
+
+        return (List<User>) userRepository.findAll();
     }
 
 }

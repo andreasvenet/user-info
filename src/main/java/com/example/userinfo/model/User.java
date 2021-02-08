@@ -23,6 +23,10 @@ public class User {
     @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate birthDate;
 
+    public User(){
+
+    }
+
 
 
     public Integer getId() {
@@ -57,4 +61,19 @@ public class User {
         this.gender = gender;
     }
 
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public User(Integer id, String name, String surname, String gender, LocalDate birthDate) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.gender = gender;
+        this.birthDate = birthDate;
+    }
 }
