@@ -12,29 +12,27 @@
 
 </head>
 <body>
-<a href="../display">Back to Display</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="../display">Back To Display</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+</nav>
     <div class="container">
         <h1>User Details</h1>
-        <div class="row">
-            <div class="col-2">
-                <p>First Name: ${name.name}</p>
-            </div>
-            <div class="col-2">
-                <p>Surname: ${name.surname}</p>
-            </div>
-            <div class="col-2">
-                <p>Birth Date: ${name.birthDate}</p>
-            </div>
-            <div class="col-2">
-                <p>Gender: ${name.gender}</p>
-            </div>
-            <div class="col-2">
-                <p>Home Address: ${address.homeAddress}</p>
-            </div>
-            <div class="col-2">
-                <p>Work Address: ${address.workAddress}</p>
-            </div>
-        </div>
+        <card>
+            <card-body>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>First Name</b>: ${name.name}</li>
+                    <li class="list-group-item"><b>Last Name</b>: ${name.surname}</li>
+                    <li class="list-group-item"><b>Birth Date</b>: ${name.birthDate}</li>
+                    <li class="list-group-item"><b>Gender</b>: ${name.gender}</li>
+                    <li class="list-group-item"><b>Home Address</b>: ${address.homeAddress}</li>
+                    <li class="list-group-item"><b>Work Address</b>: ${address.workAddress}</li>
+                </ul>
+            </card-body>
+        </card>
     </div>
 </body>
 </html>
