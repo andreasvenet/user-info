@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -38,4 +39,20 @@ public class AddressService {
             throw  new ResponseStatusException(HttpStatus.NOT_FOUND, "Address Does Not Exist");
         }
     }
+
+    public List<Address> getAll(){
+
+        return (List<Address>) addressRepository.findAll();
+    }
+
+    public Address findByUser(User user){
+        Optional<Address> aAddress = addressRepository.findByUser(user);
+        if(!aAddress.isEmpty()){
+            return aAddress.get();
+        }
+        else {
+            return new Address();
+        }
+    }
+
 }

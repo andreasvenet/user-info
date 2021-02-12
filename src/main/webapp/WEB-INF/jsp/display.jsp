@@ -27,7 +27,7 @@
                 <tbody>
                 <c:forEach var="user" items="${names}">
                     <tr>
-                        <td>${user.name}</td>
+                        <td><a href="details/${user.id}">${user.name}</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -37,7 +37,7 @@
                 <tbody>
                 <c:forEach var="user" items="${names}">
                     <tr>
-                        <td>${user.surname}</td>
+                        <td><a href="details/${user.id}" >${user.surname}</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>

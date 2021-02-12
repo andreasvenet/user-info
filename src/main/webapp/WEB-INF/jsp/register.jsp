@@ -65,7 +65,7 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Home Address</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" name="address"
+                        <input type="text" class="form-control" name="homeAddress"
                                placeholder="Enter Home Address"/>
                     </div>
                 </div>
